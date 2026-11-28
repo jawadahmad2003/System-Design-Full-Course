@@ -1,0 +1,129 @@
+UML NOTES: CLASS DIAGRAMS & SEQUENCE DIAGRAMS
+==============================================
+
+PART 1: CLASS DIAGRAM
+---------------------
+
+Class Name
+  A class box has 3 compartments:
+    1. Class Name
+    2. Attributes
+    3. Methods
+
+  Example: Car
+    Attributes:
+      - String brand
+      - int engine
+      - String model
+    Methods:
+      + startEngine()
+      + accelerate()
+      + brake()
+      + stop()
+
+Generic Class
+  - Class with a template/generic type, e.g. ClassName<T>
+  - method(T) : T
+
+Abstract Class
+  - Class name written in italics (<<abstract>>)
+  - Cannot be instantiated directly
+
+Relationships (Associations)
+  - Association
+  - Inheritance
+  - Composition
+  - Aggregation
+  - Simple Association
+
+Simple Association
+  - Class and object relationship
+  - Denoted by a plain line (--)
+  - Example: a Container associated with objects (Ob1, Ob2, Ob3)
+
+Inheritance
+  - "is-a" relationship
+  - Denoted by a hollow-triangle arrow
+  - Example: Animal <- Human
+  - Code:
+        class A {
+            method1();
+        };
+        class B : public A {
+            method2();
+        };
+        main() {
+            B *b = new B();
+            b->method1();
+            b->method2();
+        }
+
+Composition
+  - "has-a" relationship
+  - Denoted by a filled-diamond line
+  - Code:
+        class A {
+            method1();
+        };
+        class B {
+            A *a;
+            B() {
+                a = new A();
+            }
+            method2() {
+                a->method1();
+            }
+        };
+        main() {
+            B *b = new B();
+            b->method2();
+        }
+
+
+PART 2: SEQUENCE DIAGRAM
+------------------------
+
+Purpose
+  - Shows communication / interaction between objects over time.
+
+Main Elements
+  1. Participating object
+  2. Lifeline (dashed vertical line below the object)
+  3. Activation (thin rectangle on the lifeline)
+
+Message Types
+  - Synchronous message: solid line with filled arrowhead
+  - Asynchronous message: solid line with open arrowhead
+  - Return message: dashed line
+  - Create message: creates a new object
+  - Destroy message: ends an object's lifeline (X)
+
+Special Messages
+  - Lost message: sent but never received
+  - Found message: received from an unknown sender
+
+
+Example: ATM Transaction Flow
+-----------------------------
+  1. Verify ATM PIN
+  2. Verify Account
+  3. Check transaction / amount
+  4. Tell Cash Dispenser to dispense money
+
+Objects involved:
+  ATM, User, Transaction, Account, Cash Dispenser
+
+Message flow:
+  ATM -> Transaction : withdraw(amount, accNo)
+  Transaction -> Account : checkAmt(amount)
+  Account --> Transaction : return true
+  Transaction -> Cash Dispenser : withdrawCash(amount)
+  Cash Dispenser --> Transaction : return amount
+  Transaction --> ATM : return amount
+
+
+Interaction Fragments
+---------------------
+  alt   : alternatives (if-else)
+  opt   : optional (if)
+  loop  : repeat (for / while)

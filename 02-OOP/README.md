@@ -170,3 +170,8 @@ My learning approach is based on understanding concepts first and then implement
 My goal is to develop strong software design skills, understand how real-world applications are structured, and become confident in solving Low-Level Design problems for Software Engineering interviews.
 
 **Learning Journey: System Design 2027 | LLD with Python**
+
+Inheritance in Python
+Inheritance is a fundamental concept in object-oriented programming (OOP) that allows a class (called a child or derived class) to inherit attributes and methods from another class (called a parent or base class).
+
+Here, a parent class Animal is created that has a method info(). Then a child class Dog is created that inherits from Animal and adds additional behavior.

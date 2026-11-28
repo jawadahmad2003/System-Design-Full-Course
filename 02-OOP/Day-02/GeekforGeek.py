@@ -169,3 +169,47 @@ payment1 = CreditCard()
 payment2 = Jaazcash()
 payment1.pay(5000)
 payment2.pay(2000)
+
+#Inheritance
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def info(self):
+        print("Animal name:", self.name)
+
+class Dog(Animal):
+    def sound(self):
+        print(self.name, "barks")
+
+d = Dog("Buddy")
+# Inherited method
+d.info()     
+d.sound()
+
+"""
+ENCAPSULATION IN PYTHON
+
+Encapsulation explains two things:
+
+1. An object's characteristics (attributes) and
+   behaviours (methods) are encapsulated together
+   within that object.
+
+2. All characteristics and behaviours should not be
+   directly accessible to everyone.
+
+   Objects should provide controlled access to data.
+
+We implement encapsulation by:
+
+1. Creating a class that acts as a blueprint for objects.
+   The class contains attributes and methods together.
+
+2. Using access conventions and properties to control
+   access to class attributes.
+
+Example:
+SportsCar represents a real-world sports car.
+"""
+
